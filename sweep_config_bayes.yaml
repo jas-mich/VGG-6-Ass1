@@ -1,0 +1,32 @@
+program: train2.py
+method: bayes
+metric:
+  name: best_test_acc
+  goal: maximize
+parameters:
+  optimizer:
+    values: ['adam', 'sgd', 'rmsprop', 'adagrad', 'nesterov_sgd', 'adamw', 'adamax', 'nadam']
+  activation:
+    values: ['tanh', 'leaky_relu', 'silu', 'gelu','relu','sigmoid']
+  lr:
+    distribution: log_uniform_values
+    min: 0.0001
+    max: 0.01
+  batch_size:
+    values: [512]
+  epochs:
+    values: [100]
+  weight_decay:
+    distribution: log_uniform_values
+    min: 0.00001
+    max: 0.01
+  batch_norm:
+    values: [true, false]
+  scheduler:
+    values: [ 'cosine', 'exponential']
+  scheduler_step_size:
+    values: [10, 20, 30]
+  scheduler_gamma:
+    distribution: uniform
+    min: 0.1
+    max: 0.95
