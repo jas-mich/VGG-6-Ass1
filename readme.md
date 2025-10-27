@@ -56,6 +56,12 @@ For example, to use the Bayesian optimization configuration:
 wandb sweep sweep_config_bayes.yaml
 ```
 
+This will output a sweep ID. To run the agent, use the following command:
+
+```bash
+wandb agent <sweep_id>
+```
+
 ## Reproducing Results
 
 To reproduce the results and test the best model, you can use the `test.py` script. This script loads the model with its best weights and configuration, which achieved a test accuracy of 88.78%.
